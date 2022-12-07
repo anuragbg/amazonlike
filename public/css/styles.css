@@ -1,0 +1,824 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family:"Amazon Ember", Arial, sans-serif;
+  }
+  :root{
+    --thedarkshade:#2f2525;
+    --thelightshade:#ad4b4b;
+  }
+  html {
+    scroll-behavior: smooth;
+    margin:auto;
+    min-width:200px;
+  }
+  .font1rem{
+    font-size: 1rem;
+  }
+  body {
+    height: 1000vh;
+    background:rosybrown;
+    /*background-image: url(pic/gold.png);*/
+  }
+  .dflex {
+    display: flex;
+    align-items: center;
+  }
+  .just_flex{
+    display: flex;
+  }
+  a {
+    text-decoration: none; /*This is General one*/
+    padding: 5px;
+  }
+  a span {
+    font-size: 14px;
+    margin-left: -10px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .space_between_icons{
+  padding: 0 5px;
+  }
+  .space_item{
+    width:calc(60px);
+  }
+  .colormeblack{
+    color:black; /*For the texts*/
+  }
+  .colormeorange{
+    color:orange; /*For the stars*/
+  }
+  .font_weight_bold{
+    font-weight:bold;
+  }
+  .none{
+    display: none;
+  }
+  button{ cursor: pointer; }/* For the sake of pointer*/
+  
+  /* Creating my Nav Bar!!!  */
+  nav {
+    background-color: black;
+    align-items: center;
+    padding: 4px 15px 4px 15px;
+  }
+  .item {
+    padding: 10px 5px;
+    cursor: pointer;
+    margin: -1px auto;
+    /*float:left;*/
+  }
+  .item:hover{
+    border: 1px solid #fff;
+    border-radius: 2px;
+    padding-left:4px;
+  }
+  .alogo{background:black;border-radius: 10px;}
+  .alogo:hover{
+    border: 1px solid white;
+    margin: -1px;
+  }
+  .logo {
+    padding: 6px 8px 0px 0px;
+    height: 42px;
+  }
+  nav .all {
+    background: #ddd;
+    border-radius: 5px 0px 0px 5px;
+    height: 40px;
+    font-size: 12px;
+    width:56px;
+  }
+  nav .inp {   
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 40px;
+    font-size: 90%;
+    padding-left: 2%; /*This is where we type our shoping input*/
+  }
+  nav .search {
+    width:53px;
+    height: 40px;
+    background: rgb(247, 155, 80);
+    border-radius: 0px 5px 5px 0px;
+  }
+  nav .search i,
+  nav .all i {
+    color: black; /*This is for those drop down <i> tags */
+  }
+  
+  .box{ /*All the 3 ALL, INTPUT, SEARCH BUTTON are inside this box class*/
+    background-color: var(--background-color);
+    color: black;
+    border-radius: 5px;
+    --border-size: 3px;
+    --background-color:rgb(247, 155, 80);
+  }
+  .btnn{ /*Notice the difference in search Bar buttons left and right*/
+    color: black;
+    font-size: 17px;
+    border: none;
+    outline: none;
+  }
+  .box:hover{
+    transition: all, 100ms ease-in-out;
+    border: var(--border-size) solid rgb(247, 155, 80);
+    box-shadow: 0px 0px 30px 0px rgb(247, 155, 80);
+    border-radius: 5px;
+  }
+  .signin ul li{
+    cursor:auto;
+    font-size: 13px;
+    color: #444;
+  }
+  .new_signin{
+    position: relative;
+    height:40px;
+    font-size: 14px;
+    width: 200px; /*This changes the size of the div tag which is a button here*/
+    text-align: center;
+    box-shadow: inset 0 1px 0 0 #fcf3dc;
+    border: 1px solid;
+    border-color: #c89411 #b0820f #99710d;
+    border-radius: 3px;
+    background: linear-gradient(to bottom,#f8e3ad,#EEBA37);
+    padding: 10px;
+    margin:auto; /*This moves the Sign in button in middle*/
+  }
+  .pointer{ /*The triangle pointer*/
+    width:10px;
+    height: 10px;
+    background: white;
+    color: white;
+    transform: rotate(45deg);
+    border: 1px solid grey;
+    border-bottom: none;
+    border-right: none;
+    position: absolute;
+    top: -6px;
+    left: 61.5%; /* This will separate the pointer from its position */
+    z-index: 1;
+  }
+  .new_signin:hover{
+    background: #f3cf72;
+  }
+  .new_customer, .signup{
+    color:black;
+    position: relative;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .signup{ text-decoration:none; color: #05a;}
+  .signin_drop_li:hover, .signup:hover{
+    text-decoration: underline;
+    color:orange;
+  }
+  .signin_dropdown{ /*The white box that appears after that triangle drop down*/
+    position: absolute;
+    z-index: 1;
+    list-style: none;
+    cursor: auto;
+    top:50px;
+    background-color: white;
+    box-shadow: 0 4px 16px 0 rgb(0 0 0 /20%);
+    border: 1px solid grey;
+    min-width: 350px;
+    transform: translate(-30%); /* This will separate the dropdown from the pointer triangle */
+    padding:10px;
+    border-radius:3px;
+  }
+  .signin:hover .signin_dropdown{ /* This makes out drop down appear */
+    position: absolute;
+    display: block;
+  }
+  .signin_box{
+    border-bottom:1px solid rgb(200, 200, 200);
+    margin: 15px 0 20px;
+  }
+  .new_customer,.signup{
+    font-size: 13px;
+  }
+  .signin_dropdown ul li{
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  /* Creating my subnavigation Bar */
+  .subnavigation {
+     /*This will put the sub nav behind the main nav*/
+    background-color: #232f3e;
+    padding: 10px 0;
+     /*This is second navigation line*/   
+  }
+  .submenu {/*Things like My experience, amazon pay blah blah on submenu ul inside subnavigation nabar*/
+    padding: 1px 3px;
+    margin-right: 10px;
+    margin-left: 10px;/* margin-left: auto; This alone alows me to float elements to right side of our Parent. Navbar*/
+    justify-content: space-around;
+  }
+  ul a,ul li {
+    list-style: none;
+    color:white;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  .subnavigation ul a:hover{ /*This is hover for items in subnavigation*/
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin:-3px 2px;
+    margin-right:-3px;
+    padding: 7px;
+  }
+  .bg {
+    padding: 6px 6px;
+    margin: -5px 0;
+    background-color: rgb(247, 155, 80);
+  }
+  
+  /* Designing the toggle section */
+  .toggle{
+    padding: 12px;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    border: 1px solid red;
+    border-radius: 7px;
+    background: url("/pic/menu.png");
+    background-size: 100%;
+    cursor: pointer;
+    display: none;
+  }
+  .toggle.active{
+    height: 100px;
+    width: 100px;
+    padding: 12px;
+    background: url("/pic/close.png");
+    background-position: center;
+    background-size: 100%;
+  }
+  .submenu.active{
+    display:block;
+  }
+  
+  /* Styling the CAROUSEL*************************************************** */
+  .carousel_item_container{
+    background-image: linear-gradient(315deg, var(--thelightshade) 0%, var(--thelightshade) 74%);
+    border-radius: 30px;
+    width:620px;
+    height:450px;
+    min-width:400px;
+    margin:50px 0 0 50px;
+    margin-left:10px;
+    padding:20px 10px 5px;
+  }
+  .carousel_item_container:hover,.carousel_item_container:focus{
+    background-image: linear-gradient(315deg, var(--thedarkshade) 0%, var(--thelightshade) 74%);
+  }
+  .carousel{
+    width:100%;
+    height:330px;
+    position:relative;
+    padding: 0px;
+  }
+  .carousel > ul,.carousel > li { /* The greater than symbol means just to be specific to objects inside its container like "ul" here */
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .slide{  /*The one containing all the images*/
+    position:absolute;
+    inset: 0;
+    padding: 0;
+    margin:0;
+    opacity: 0;
+    transition: 700ms opacity ease-in-out;
+    transition-delay: 200ms;
+    object-fit: cover; /*This is to make sure it fits and aspect ratio is maintained, only problem is the pixels get cut*/
+  }
+  .slide img{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin-top:5px;
+    object-fit: cover; /*This is to make sure it fits and aspect ratio is maintained, only problem is the pixels get cut*/
+  }
+  .slide[data-active]{
+    opacity:1;
+    transition-delay: 0ms;
+  }
+  .carousel-button{
+    height: 130px;
+    width: 65px;
+    position: absolute;
+    background:none;
+    border:none;
+    font-size:3rem;
+    top:50%;
+    z-index:1;
+    transform: translateY(-50%);
+    color:rgba(255,255,255,.4);
+    border-radius: .25rem;
+    padding:0 .5rem;
+    background-color:rgba(0,0,0,.1)
+  }
+  .carousel-button:hover,.carousel-button:focus{
+    color: white;
+    background-color:rgba(0,0,0,.2);
+    border: 1px solid grey;
+  }
+  .carousel-button.next{
+    right:0; /*To make it visible right side*/
+  }
+  .purchase_box{
+    padding: 9px;
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .purchase_btn {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    color:black;
+    text-align: center;
+    font-size: 19px;
+    font-weight:bold;
+    padding:5px;
+    max-width: 100%;
+    width: 230px;
+    height: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+    position: relative;
+    transition: 0.5s;
+  }
+  .purchase_btn:after {
+    content: '»';
+    font-size:2rem;
+    border: none;
+    position: absolute;
+    opacity: 0;  
+    top:5px;
+    right: -20px;
+    transition: 0.3s;
+  }
+  .purchase_btn:hover{
+    border: none;
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  .purchase_btn:hover:after {
+    border: none;
+    opacity: 1;
+    right: 10px;
+  }
+  .unlock_btn{
+    border-radius: 8px;
+    height: 35px;
+    width: 230px;
+    border-color: #c89411 #b0820f #99710d;
+    background: linear-gradient(to bottom,#ffebb9 30%,#9e7202 95%)
+  }
+  .unlock_btn:after{
+    top:1.5px; font-size: 1.5rem;
+  }
+  .fa-lock{
+    margin-right:5px;
+    font-size: 16px;
+  }
+  .tap{
+    color:#000;
+    font-size: 16px;
+  }
+  .inclusive{
+    font-size:1rem;
+    margin-top: 10px;
+  }
+  .add_to_cart_btn{
+    background:linear-gradient(to bottom,#ffebb9 30%, rgb(123, 80, 2) 95%);
+  }
+  .add_to_cart_btn:hover,.add_to_cart_btn:focus{
+    background:linear-gradient(to right, #ffc107 0%, rgb(255, 85, 0) 74%);
+  }
+  .buy_now_btn{
+    background:linear-gradient(to bottom, #69ff8c 35%,#008720 85%);
+  }
+  .buy_now_btn:hover,.buy_now_btn:focus{
+    background:linear-gradient(to right, rgb(255, 255, 3), #06ae2d);
+  }
+  
+  /* Creating the My Description************************************************************************************************************** */
+  .mydescriptionbox{
+    margin: 20px auto;
+    display:block;
+    min-width: 400px;
+  }
+  .mydescription{
+    padding:30px 30px 10px;
+    border-radius: 30px;
+    margin:auto;
+    background-image: linear-gradient(315deg, var(--thedarkshade) 0%, var(--thelightshade) 50%);
+  }
+  .shareicon{
+    padding:25px 0;
+    margin:20px auto;
+    height:fit-content;
+    width:fit-content;
+  }
+  .shareicon>i{
+    border: 1px solid grey;
+    border-radius: 20%;
+    background:white;
+    padding:13px;
+    cursor: pointer;
+  }
+  .shareicon>i:hover{
+    background:linear-gradient(to bottom, white, grey);
+  }
+  .best_seller{
+    margin-top: 15px;
+    height: 20px;
+    width: 100px;
+    object-fit:cover;
+  }
+  .staricon{
+    margin-top: 10px;
+  }
+  .mysalary{
+    font-size: 22px;
+    padding: 15px 0px;
+  }
+  .aboutthisitemtable{
+    width:100%;
+    border-radius: 10px;
+    background: #FFE5B4;
+  }
+  .aboutthisitem{
+    margin-top:20px;
+  }
+  .aboutthisitem h4{
+    margin:10px 0;
+  }  
+  /* My Timeline */
+  hr{
+    border: 6px dotted rgb(189, 189, 189);
+    border-bottom:none;
+    width:45px;
+    margin:40px auto 50px;
+  }
+  .containerbox{
+    margin:10px;
+    padding:0;
+    line-height:1.5;
+    color:white;
+  }
+  .container{
+    background-image: linear-gradient(315deg, var(--thedarkshade) 0%, var(--thelightshade) 74%);/* #4c4177, #2a5470 */
+    padding:2rem;
+    padding-bottom: 100px;
+    margin:0 auto;
+    max-width: 1000px;
+    border-radius: 35px;
+  }
+  .top-section{
+    text-align: center;
+    padding: 4rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .timeline{
+    position: relative;
+    min-height: 150px;
+  }
+  .line{
+    position: absolute;
+    z-index: 2;
+    left:calc(50% - 1px);
+    width: 2px;
+    top: -50px;
+    bottom: - 50px;
+    background-color: black;
+    display: none;
+  }
+  .line::before,
+  .line:after{
+    position: absolute;
+    display: block;
+    content:'';
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .line:after{
+    bottom: 0;
+  }
+  .section{
+    display:flex;
+    opacity: 0;
+    transform:translateX(-100%);
+    transition:600ms ease;
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    align-items: center;
+    min-height: 300px;
+  }
+  .section:nth-child(odd){
+    flex-direction: row-reverse;
+    transform:translateX(100%);
+  }
+  .bead{
+    position: absolute;
+    display: block;
+    height:1rem;
+    width:1rem;
+    border-radius:50%;
+    background-color: #000;
+    left:50%;
+    top:20%;
+    transform:translateX(-50%);
+  }
+  .content{
+    width:calc(50% - 2rem);
+  }
+  .show-me:nth-child(n){
+    transform:none;
+    opacity: 1;
+  }
+  h2{
+    letter-spacing:1px;
+  }
+  
+  @media screen and (min-width: 1080px){ /* Test case where if i dont select close toggle button, then i handle it by making it normal */
+    .submenu.active{
+      display:flex;
+    }
+  }
+  @media screen and (max-width:1080px){
+
+    nav{
+      position:relative;
+      top:0;
+      background:linear-gradient(rgb(224, 90, 90), rgb(84, 58, 58));
+      height:200px;
+    }
+    nav ul{
+      font-size: 2rem;
+      background-image: linear-gradient(315deg, #2f2525 0%, #ad4b4b 74%);
+      position:absolute;
+    }
+    .right,.item{
+      display: none;
+    }
+    .alogo{
+      height: 100px;
+      width:200px;
+      margin-right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+    }
+    .alogo img{
+      height:70%;
+      width:85%;
+      padding-left: 10px;
+    }
+    .alogo span{
+      font-size: 1.5rem;
+    }
+    .box{
+      width:500px;
+      position: relative;
+      border-radius: 20px;
+    }
+    .searchBox{
+      margin:auto;
+      width: fit-content;
+    }
+    nav .all{
+      border-radius: 20px 0 0 20px;
+      height: 100px;
+      width: 150px;
+      font-size: 1.95rem;    
+    }
+    nav .inp{
+      font-size:35px;
+      height: 100px;
+      border-radius: 0px;
+    }
+    nav .search{
+      border-radius: 0 20px 20px 0;
+      width:150px;
+      font-size: 2rem;
+    }
+    
+    .subnavigation{
+      top:200px;
+      right:0%;
+      left:7%;
+      position:absolute; /*Helps in being visible on top the my carousel*/
+      z-index: 1; /*Helps in being visible on top the my carousel*/
+      display:block;
+      padding: 0;
+      height:0%;
+      z-index: 2; /*To appear on top of our Carousal arrow marks */
+    }
+    .subnavigation ul{
+      padding:5px;
+      width: 730px;
+      height: 675px;
+      margin-left: auto; /* This completely shifts the drop down to the right side*/
+      border-radius: 0 0 50px 50px;
+    }
+    .subnavigation ul a{
+      padding: 30px;
+      display: block;
+    }
+    .subnavigation ul a li{
+      font-size: 35px;
+    }
+    .subnavigation ul a:hover{
+      background-color:#ba0c0c;
+      padding: 30px;
+      margin:-1px 0px -1px 4px;
+      border-radius: 20px;
+    }
+    .toggle{
+      display:block;
+      margin-left:2%;
+      height: 100px;
+      width: 100px;
+      border-radius: 20px;
+    }
+    .submenu{
+      border-top: 1px solid black;
+      display: none;
+      position: relative;
+    }
+    #carousel_id{
+      display: block;
+      margin:auto;
+      width:100%;
+    }
+    .carousel_item_container,.carousel_item_container:hover{
+      width:fit-content;
+      border-radius: 50px;
+
+      height:800px;
+      width:95%;
+      
+      min-height: 200px;
+      min-width:390px;
+  
+      margin:200px auto 50px;
+      padding: 0;
+      background-image: linear-gradient(315deg, #2f2525 0%, #ad4b4b 40%);
+    }
+    .slide{
+      margin-top: 70px;
+      padding:0 10px;
+      height:180%;
+      width: 100%;
+    }
+    .carousel{
+      height:290px;
+    }
+    .purchase_box{
+      top:43%;
+      width:100%;
+      margin: auto;
+      position: relative;
+    }
+    .purchase_btn{
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto 20px;
+      height:90px;
+      width:330px;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .purchase_btn:after{
+      content: '»';
+      font-size:50px;
+      position: absolute;
+      opacity: 0;  
+      top:12px;
+      right: -20px;
+      transition: 0.5s;
+    }
+    .unlock_btn{
+      margin-top: 10px;
+      height: 100px;
+      width:500px;
+      max-width: 500px;
+    }
+    .unlock_btn:after{
+      top:18px; font-size: 50px;
+    }
+    .aboutthisitemtable{
+      line-height: 1.5;
+      padding: 10px 2px 10px 2px;
+      margin-bottom: 50px;
+    }
+    .fa-lock{
+      margin-right: 12px;
+    }
+    .tap{
+      color:#000;
+      font-size: 35px;
+    }
+    .carousel-button{
+      transform:translateY(30%);
+      height:80%;
+      width:14%;
+      font-size: 4.55rem;
+    }
+    .shareicon{
+      margin:20px 0px 20px 30px;
+    }
+    .shareicon i{
+      padding:40px;
+      font-size:2.5rem;
+    }
+
+    .staricon{
+      line-height: 2;
+    }
+    .staricon span{
+      font-size:2rem;
+    }
+    .aboutthisitemtable{
+      min-width:400px;
+    }
+    .mydescriptionbox{
+      margin: 50px 15px;
+    }
+    .mydescription{
+      min-width:400px;
+      width:100%;
+      border-radius: 40px;
+      padding-bottom: 50px;
+    }
+    .mydescription .staricon i{
+      font-size: 2rem;
+      margin: 1.5px;
+    }
+    .mydescription h2{
+      font-size: 3.5rem;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .ninelack{
+      margin-left: 20px;
+      font-size: 3rem;
+    }
+    .best_seller{
+      height:50px;
+      margin: 10px 0;
+      width:200px;
+    }
+    .mysalary i{
+      margin-right: 10px;
+      font-size:3rem;
+    }
+    .mysalary{
+      font-size:2rem;
+    }
+    .mydescription .inclusive{
+      font-size: 2rem;
+      margin-top: 15px;
+      margin-left: 5px;
+    }
+    .mydescription .aboutthisitem{
+      margin-top:50px;
+    }
+    .aboutthisitem h4{
+      font-size: 2.8rem;
+      margin:10px 0;
+    }
+    .aboutthisitem table tr td{
+      font-size: 2rem;
+    }
+  }
+  

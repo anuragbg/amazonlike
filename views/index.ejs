@@ -1,0 +1,264 @@
+<% include("partials/header.ejs") %>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+<script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <section id="mainnav">
+  <nav class="just_flex">
+    <div class="left dflex">
+      <a href="/" class="alogo dflex"><img src="pic/amazon.png" class="logo"/><span>.in</span></a>
+      <div class="item" style="width:160px; margin-left:10px;">
+        <p><span style="padding-left:15px"><%= deliverTopersonejs %></span></p>
+        <h5><i class="fa-solid fa-location-dot" style="margin-right:4px;"></i>Select your address</h5>
+      </div>
+    </div>
+
+    <div class="searchBox" style="width:56%;">
+        <div class="box dflex">
+          <button type="submit" class="btnn all" style="padding-left:6px"> All <i class="fa fa-sort-desc" style="margin-left: 5px;"></i>
+          </button>
+
+          <input type="text" class="btnn inp" placeholder="Search here...">
+
+          <button type="submit" class="btnn search" style="padding:0px 5px">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+    </div>
+
+    <div class="right dflex">
+      <div class="item space_item">
+        <i class="fa fa-flag space_between_icons"></i>
+        <i class="fa fa-sort-desc"></i>
+      </div>
+      <div class="item signin"  style="width:150px;">
+        <div class="dflex">
+          <div class="space_between_icons"><p>Hello, <%= usernameejs %></p>
+          <h5>Account & Lists</h5></div>
+          <div><i class="fa fa-sort-desc"></i></div>
+        </div>
+        <div class="signin_dropdown none"> <!-- Here i used the css selector .none-->
+          <div class="pointer"></div>
+          <% if(usernameejs=== "Sign In"){ %>
+          <div class="signin_box"> <!-- Covers the Signin button and New Customer Sign up -->
+          <form action="/login" method="get" style="display: flex; justify-items:center">
+            <button type="submit" class="new_signin colormeblack" style="cursor:pointer; width: 200px;">Sign in</button>
+          </form>
+          <div class="new_customer" style="color:#444;">New customer? <a class="signup" style="cursor:pointer;" href="/register">Start here</a></div>
+          </div>
+          <ul class="signin_dropdown_list">
+            <h4  style="color:black; padding:4px 6px;">Your Account</h4>
+            <li class="signin_drop_li">Your Account</li>
+            <li class="signin_drop_li">Your Orders</li>
+            <li class="signin_drop_li">Your Wish List</li>
+            <li class="signin_drop_li">Your Prime membership</li>
+          </ul>
+          <% }else{ %>
+              <ul class="signin_dropdown_list">
+                <h4  style="color:black; padding:4px 6px;">Your Account</h4>
+                <li class="signin_drop_li">Your Account</li>
+                <li class="signin_drop_li">Your Orders</li>
+                <li class="signin_drop_li">Your Wish List</li>
+                <li class="signin_drop_li">Your Prime membership</li>
+                <li><a class="signin_drop_li" style="color:#444; margin-left:-5px;" href="/logout">Sign out</a></li>
+              </ul>
+          <% } %>
+        </div>
+      </div>
+      <div class="item" style="width:70px;">
+        <p>Returns</p>
+        <h5>& Order</h5>
+      </div>
+        <div class="item" style="width:100px;">
+          <i class="fa fa-shopping-cart fa-2x"></i >Cart
+        </div>
+      </div>
+    <div class="toggle"></div> <!--Here's the toggle button -->
+  </nav>
+  <nav class="subnavigation just_flex">
+    <ul class="submenu just_flex">
+      <a href="#"><li><i class="fa fa-bars space_between_icons"></i>All</li></a>
+      <a href="#experience"><li>My experience</li></a>
+      <a href="#"><li>Amazon Business<i class="fa fa-sort-desc space_between_icons"></i></li></a>
+      <a href="#"><li>Video Games</li></a>
+      <a href="#"> <li class="li"><i class="fa-brands fa-amazon space_between_icons bg"></i>| Download the App on Android/IOS</li></a>
+      <% if(usernameejs=== "Sign In"){ %>
+      <a href="/login" class="none" ><li><%= subMenuLoginejs %></li></a>
+      <% }else{ %>
+        <a href="/logout" class="none" ><li><%= subMenuLoginejs %></li></a>
+      <% } %>
+    </ul>
+  </nav>
+</section>
+
+  <!-- Making the corousel and items container section -->
+  <section id="carousel_id" aria-label="Newest Photos" class="just_flex" data-bs>
+      <div class="carousel_item_container">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+          <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="pic/dontgiveup.jpg" alt="Nature Image #1">
+            </li>
+            <li class="slide">
+              <img src="https://source.unsplash.com/eOpewngf68w" alt="Nature Image #2">
+            </li>
+            <li class="slide">
+              <img src="https://source.unsplash.com/ndN00KmbJ1c" alt="Nature Image #3">
+            </li>
+            <!-- CAN ADD MORE IMAGES CAROUSELS HERE LIKE ABOVE -->
+          </ul>
+        </div>
+        <div class="purchase_box just_flex">
+          <div class="purchase_btn add_to_cart_btn">Add to Cart</div>
+          <div class="purchase_btn buy_now_btn">Buy Now</div>
+        </div>
+      </div>
+    <div class="shareicon">
+      <i class="fa-solid fa-arrow-up-from-bracket colormeblack"></i>
+    </div>
+    <div class="mydescriptionbox">
+    <div class="mydescription">
+      <h2 class="font_weight_bold">Web Developer for Hire!!! ( Html, Css, JavaScript )</h2>
+      <div class="staricon">
+        <i class="fa-solid fa-star colormeorange "></i>
+        <i class="fa-solid fa-star colormeorange "></i>
+        <i class="fa-solid fa-star colormeorange "></i>
+        <i class="fa-solid fa-star colormeorange "></i>
+        <i class="fa-solid fa-star colormeorange "></i>
+        <i class="fa-solid fa-angle-down" style="margin-left:10px;"></i>
+        <span style="margin-left:5px;" class="font_weight_bold">25,556 ratings</span>
+      </div>
+      <img class="best_seller" src="pic/best_seller.png" alt="">
+      <div class="mysalary">
+        <div class="dflex font_weight_bold"><i class="fa-solid fa-indian-rupee-sign" style="margin-right: 5px; margin-top:10px;"></i>
+        <% if(usernameejs=== "Sign In"){ %>
+          <form action="/login" method="GET">
+          <button class="purchase_btn unlock_btn"><i class="fa fa-lock colormeblack"></i><div class="tap">Tap to unlock Price.</div></p></button>
+          </form>
+        </div>
+        <% }else{ %>
+          <span class="ninelack">9,94,600 (9 LPA)</span>
+        </div>
+          <div class="inclusive">Inclusive of all taxes</div>
+        <% } %>
+      <div class="aboutthisitem" >
+        <h4>About this item</h4>
+        <table class="aboutthisitemtable" cellspacing="12">
+        <tr><td class="colormeblack">Currently working in Bank of America, about 2 years in total.</td></tr>
+        <tr><td class="colormeblack">Has experience in Data Structure and Algorithms.</td></tr>
+        <tr><td class="colormeblack">Favoured Coding Language: C++.</td></tr>
+        <tr><td class="colormeblack">Also codes in Html, Css, Javascript, Ejs, MongoDB/Mongoose, NodeJS etc.</td></tr>
+        <tr><td class="colormeblack">Interested in working as Full Stack Web Developer.</td></tr>
+        </table>
+        <table cellspacing="20">
+          <tr><h4 style="margin-bottom:-10px;">Customer Ratings</h4></tr>
+        <tr>
+          <td > Efficient Coder: </td>
+          <td>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star"></i>
+          </td>
+        </tr>
+        <tr>
+          <td>Problem Solver: </td>
+          <td style="margin-left:20px;">
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star"></i>
+          </td>
+        </tr>
+        <tr>
+          <td> DSA Knowledge: </td>
+          <td>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+            <i class="fa-solid fa-star colormeorange"></i>
+          </td>
+        </tr>
+        </ul>
+        </table>
+      </div>
+    </div>
+    </div>
+</section>
+
+<hr>
+<!-- Making my TimeLine -->
+<!-- <section class="containerbox" id="experience">
+<div class="container">
+  <div class="top-section">
+    <h1>Animated Timeline</h1>
+    <p>
+      buvuuvvvvuvuvuvuvu
+      ububububububuubububu
+      tvyvyvygvvvuvyvyvyvyv
+    </p>
+  </div>
+  <div class="timeline" >
+    <div class="line"></div>
+      <div class="section">
+        <div class="bead"></div>
+          <div class="content" >
+            <h2>Web Design</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quidem 
+              illo ducimus molestiae saepe iusto maiores, repudiandae numquam dolorum 
+              voluptatum ea nam suscipit tenetur quasi esse fugit culpa? Provident, aliquam.
+            </p>
+          </div>
+      </div>
+      
+      <div class="section">
+        <div class="bead"></div>
+          <div class="content">
+            <h2>Web Development</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quidem 
+              illo ducimus molestiae saepe iusto maiores, repudiandae numquam dolorum 
+              voluptatum ea nam suscipit tenetur quasi esse fugit culpa? Provident, aliquam.
+            </p>
+          </div>
+        </div>
+      <div class="section">
+        <div class="bead"></div>
+          <div class="content">
+            <h2>Front End</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quidem 
+              illo ducimus molestiae saepe iusto maiores, repudiandae numquam dolorum 
+              voluptatum ea nam suscipit tenetur quasi esse fugit culpa? Provident, aliquam.
+            </p>
+          </div>
+        </div>
+      <div class="section">
+        <div class="bead"></div>
+          <div class="content">
+            <h2>Back End</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quidem 
+              illo ducimus molestiae saepe iusto maiores, repudiandae numquam dolorum 
+              voluptatum ea nam suscipit tenetur quasi esse fugit culpa? Provident, aliquam.
+            </p>
+          </div>
+        </div>
+
+  </div>
+</div>
+</section> -->
+
+<% include("partials/footer.ejs") %>
