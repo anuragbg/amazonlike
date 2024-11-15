@@ -1,62 +1,62 @@
 //jshint esversion:6
 
 require('dotenv').config();
-const express=require("express");
-const ejs = require("ejs");
-const bodyParser=require("body-parser");
-const mongoose=require("mongoose");
-const session=require("express-session");
-const passport=require("passport");
-const passportLocalMongoose=require("passport-local-mongoose");
-const googleStrategy = require("passport-google-oauth20").Strategy;
-const facebookStrategy=require("passport-facebook").Strategy;
-const findOrCreate = require("mongoose-findorcreate");
+import express, { static as static_ } from "express";
+import ejs from "ejs";
+import { urlencoded } from "body-parser";
+import { connect, Schema, model } from "mongoose";
+import session from "express-session";
+import { initialize, session as _session, use, serializeUser, deserializeUser, authenticate } from "passport";
+import passportLocalMongoose from "passport-local-mongoose";
+import { Strategy as googleStrategy } from "passport-google-oauth20";
+import { Strategy as facebookStrategy } from "passport-facebook";
+import findOrCreate from "mongoose-findorcreate";
 
 const app=express();
 
-app.use(express.static("public"));
+app.use(static_("public"));
 
 app.set("view engine","ejs");
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(urlencoded({extended:true}));
 
 app.use(session({
     secret:"Our little secret.",
     resave:false,
     saveUninitialized:false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(initialize());
+app.use(_session());
 
 //mongoose.connect(process.env.URI,{ useNewUrlParser: true });
-mongoose.connect("mongodb://localhost:27017/userDB");
+connect("mongodb://localhost:27017/userDB");
 
-userSchema = new mongoose.Schema({
+userSchema = new Schema({
     username: String,
     password: String,
     secret:String
 }, { writeConcern: { w: 'majority', j: true, wtimeout: 1000 } });
 
-userSchema2 = new mongoose.Schema({
+userSchema2 = new Schema({
     purchasecount: Number
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
-const User=new mongoose.model("User",userSchema);
-const Count=new mongoose.model("Count",userSchema2);
+const User=new model("User",userSchema);
+const Count=new model("Count",userSchema2);
 
-passport.use(User.createStrategy());
-passport.serializeUser(function(user,done){
+use(User.createStrategy());
+serializeUser(function(user,done){
     done(null,user.id);
 });
-passport.deserializeUser(function(id,done){
+deserializeUser(function(id,done){
     User.findById(id, function(err,user){
         done(err, user);
     });
 });
 
 // Make our google strategy by using middleware.
-passport.use(new googleStrategy({
+use(new googleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "https://powerful-brushlands-72875.herokuapp.com/auth/google/secrets",
@@ -69,7 +69,7 @@ passport.use(new googleStrategy({
     });
   }
 ));
-passport.use(new facebookStrategy({
+use(new facebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     callbackURL: "https://powerful-brushlands-72875.herokuapp.com/auth/facebook/secrets",
@@ -100,12 +100,12 @@ app.post("/",function(req,res){
         res.render("index", {usernameejs:"Sign In", subMenuLoginejs:"Sign In",deliverTopersonejs:"Hello",mysalaryejs:""});
     }
 });
-app.get("/auth/google", passport.authenticate("google", { scope : ["profile","email"] }));
-app.get("/auth/google/secrets", passport.authenticate("google", { failureRedirect: "/login" }), function(req, res) {
+app.get("/auth/google", authenticate("google", { scope : ["profile","email"] }));
+app.get("/auth/google/secrets", authenticate("google", { failureRedirect: "/login" }), function(req, res) {
     res.redirect("/secrets");
 });
-app.get("/auth/facebook", passport.authenticate("facebook"));
-app.get("/auth/facebook/secrets", passport.authenticate("facebook", { failureRedirect: "/login" }), function(req, res) {
+app.get("/auth/facebook", authenticate("facebook"));
+app.get("/auth/facebook/secrets", authenticate("facebook", { failureRedirect: "/login" }), function(req, res) {
     res.redirect("/secrets");
 });
 app.get("/login",function(req,res){
@@ -166,7 +166,7 @@ app.post("/register", function(req,res){
             console.log(err);
             res.render("register",{errorMessage:"Please use valid credentials. This username might already be in use."});
         } else {
-          passport.authenticate("local")(req, res, function(){
+          authenticate("local")(req, res, function(){
             res.redirect("/secrets");
           });
         }
@@ -182,7 +182,7 @@ app.post("/login",function(req,res){
           console.log(err);
           res.render("login",{errorMessage:"Please use valid credentials."});
         } else {
-          passport.authenticate("local")(req, res, function(){
+          authenticate("local")(req, res, function(){
             res.redirect("/secrets");
           });
         }
