@@ -1,13 +1,13 @@
 {
   "name": "amazonlike",
   "version": "1.0.0",
-  "description": "",
+  "description": "I'm Learning about NPM",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anurag BG",
   "license": "ISC",
   "engines": {
     "node": "16.16.0"
