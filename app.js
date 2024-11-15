@@ -27,8 +27,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.URI,{ useNewUrlParser: true });
-//mongoose.connect("mongodb://localhost:27017/userDB");
+//mongoose.connect(process.env.URI,{ useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/userDB");
 
 userSchema = new mongoose.Schema({
     username: String,
@@ -83,6 +83,7 @@ function(accessToken, refreshToken, profile, cb) {
   }
 ));
 
+
 app.get("/",function(req,res){
     if(req.isAuthenticated()){
         res.render("index", {usernameejs: "Anurag", subMenuLoginejs:"Sign Out", deliverTopersonejs:"Deliver to Anurag",mysalaryejs:""});
@@ -107,14 +108,12 @@ app.get("/auth/facebook", passport.authenticate("facebook"));
 app.get("/auth/facebook/secrets", passport.authenticate("facebook", { failureRedirect: "/login" }), function(req, res) {
     res.redirect("/secrets");
 });
-
 app.get("/login",function(req,res){
     res.render("login",{errorMessage:""});
 });
 app.get("/register",function(req,res){
     res.render("register",{errorMessage:""});
 });
-
 app.get("/secrets",function(req,res){
     if(req.isAuthenticated()){
         res.render("secrets");
@@ -123,7 +122,14 @@ app.get("/secrets",function(req,res){
         res.redirect("/login");
     }
 });
-
+app.get("/professor",function(req,res){
+    if(req.isAuthenticated()){
+        res.render("professor");
+    }
+    else{
+        res.redirect("/login");
+    }
+});
 app.get("/submit",function(req,res){
     if(req.isAuthenticated()){
         res.render("submit");
@@ -146,13 +152,13 @@ app.get("/submit",function(req,res){
         res.redirect("/login");
     }
 });
-
 app.get("/logout", function(req,res){
     req.logout(function(err) {
         if (err) { return next(err); }
         res.redirect("/");
       });
 });
+
 
 app.post("/register", function(req,res){
     User.register({username: req.body.username}, req.body.password, function(err, user){
@@ -166,7 +172,6 @@ app.post("/register", function(req,res){
         }
       });
 });
-
 app.post("/login",function(req,res){
     const user = new User({
         username: req.body.username,
@@ -183,6 +188,11 @@ app.post("/login",function(req,res){
         }
       });
 });
+app.post("/submit",function(req,res){
+    res.redirect("/"); //Temporrary action after submit!!! I have to change this later
+});
+
+
 app.listen(process.env.PORT || 3000,function(){
     console.log("PORT successfully connected!!!");
 });

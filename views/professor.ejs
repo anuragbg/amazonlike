@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- All the below styles come from my other projects/ weirdly they dont mix with my index.ejs css-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/professor.css">
+</head>
+<div class=" profnav float-container">
+    <div class="float-child btn btn-secondary btn-lg" style="font-weight:bold;">
+       <div>Professor 1</div> 
+    </div>
+    
+    <div class="float-child btn btn-secondary btn-lg"  style="font-weight:bold">
+      <div>Professor 2</div>
+    </div>
+</div>
+
+<div class="" style="text-align: center;">
+  
+    <div class="containerbox float-container">
+        <div class="carousel_item_container float-child">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7Yj39DD-1VA?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div style="position:fixed; left:37%; top:14%;"><h1><i>Professor Details</i></h1></div>
+        <div class="mydescriptionbox float-child">
+            <div class="mydescription">
+                <h3>Professor's Description.</h3>
+                <div class="aboutthisitem">
+                        <table class="aboutthisitemtable" cellspacing="12">
+                        <tr><td class="colormeblack profpara">
+                          <div class="cont"><p class="text"> Hi I am Dr. Balakrushna Tripathy. I am a senior professor and dean of SITE School <br>of VIT, Vellore. 
+                            I have published more than 190 technical papers 
+                            <br>and my interests are in Fuzzy sets, Rough Sets, Data Clustering, Soft Computing etc.
+                          <br>It was a pleasure talking to you. Have a nice day! Bye!</p></div></td></tr>
+                        <tr><td class="colormeblack"> </td></tr>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn buy_now_btn" href="/" role="button" >Home</a>
+<%- include('partials/footer') %>

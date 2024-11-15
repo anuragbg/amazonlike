@@ -266,7 +266,7 @@
     display:block;
   }
   
-  /* Styling the CAROUSEL*************************************************** */
+  /* Styling the CAROUSEL*************************************************************************************************************** */
   .carousel_item_container{
     background-image: linear-gradient(315deg, var(--thelightshade) 0%, var(--thelightshade) 74%);
     border-radius: 30px;
@@ -471,7 +471,7 @@
   .aboutthisitem h4{
     margin:10px 0;
   }  
-  /* My Timeline */
+  /* My Timeline ********************************************************************************************************************************/
   hr{
     border: 6px dotted rgb(189, 189, 189);
     border-bottom:none;
@@ -565,7 +565,7 @@
   h2{
     letter-spacing:1px;
   }
-  
+
   @media screen and (min-width: 1080px){ /* Test case where if i dont select close toggle button, then i handle it by making it normal */
     .submenu.active{
       display:flex;
@@ -584,7 +584,7 @@
       background-image: linear-gradient(315deg, #2f2525 0%, #ad4b4b 74%);
       position:absolute;
     }
-    .right,.item{
+    .item{
       display: none;
     }
     .alogo{

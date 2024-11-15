@@ -11,7 +11,7 @@
 
   <section id="mainnav">
   <nav class="just_flex">
-    <div class="left dflex">
+    <div class="dflex">
       <a href="/" class="alogo dflex"><img src="pic/amazon.png" class="logo"/><span>.in</span></a>
       <div class="item" style="width:160px; margin-left:10px;">
         <p><span style="padding-left:15px"><%= deliverTopersonejs %></span></p>
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="right dflex">
+    <div class="dflex">
       <div class="item space_item">
         <i class="fa fa-flag space_between_icons"></i>
         <i class="fa fa-sort-desc"></i>
@@ -91,6 +91,7 @@
       <% if(usernameejs=== "Sign In"){ %>
       <a href="/login" class="none" ><li><%= subMenuLoginejs %></li></a>
       <% }else{ %>
+        <a href="/professor"><li>My Professors</li></a>
         <a href="/logout" class="none" ><li><%= subMenuLoginejs %></li></a>
       <% } %>
     </ul>
@@ -138,14 +139,14 @@
       </div>
       <img class="best_seller" src="pic/best_seller.png" alt="">
       <div class="mysalary">
-        <div class="dflex font_weight_bold"><i class="fa-solid fa-indian-rupee-sign" style="margin-right: 5px; margin-top:10px;"></i>
+        <div class="dflex font_weight_bold"><i class="fa-solid fa-usd" style="margin-right: 5px; margin-top:2px;"></i>
         <% if(usernameejs=== "Sign In"){ %>
           <form action="/login" method="GET">
           <button class="purchase_btn unlock_btn"><i class="fa fa-lock colormeblack"></i><div class="tap">Tap to unlock Price.</div></p></button>
           </form>
         </div>
         <% }else{ %>
-          <span class="ninelack">9,94,600 (9 LPA)</span>
+          <span class="ninelack">1 million</span>
         </div>
           <div class="inclusive">Inclusive of all taxes</div>
         <% } %>
