@@ -2,8 +2,7 @@
 // var rand=Math.floor(Math.random() * superheroes.length);
 // var sname = superheroes[rand];
 // console.log(`My name is ${sname}`);
-
-
+// *******************************************************************
 import inquirer from 'inquirer';
 import qr from 'qr-image'
 import fs from 'fs';
@@ -26,3 +25,5 @@ inquirer
       // Something else went wrong
     }
   });
+// **********************************************************************************************
+
